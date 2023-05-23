@@ -1,0 +1,10 @@
+<h1>My tasks</h1>
+</div class="flex-basis">
+  <% @tasks.each do |task| %>
+  <p><%= link_to task.title, task_path(task.id) %>
+  <%= link_to "DELETE",  task_path(task.id),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </p>
+  <% end %>
+<div>
+<%= link_to "Add task", new_task_path %>
